@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Rating from './Rating';
 import { Card } from 'react-bootstrap';
+import Jumbotron from './Jumbotron';
 
 class Product extends Component {
     constructor(props){
@@ -24,7 +25,8 @@ class Product extends Component {
                             rating={this.props.data.rating}
                             numOfReviews={this.props.data.numOfReviews}
                         />
-                        <p>{this.props.data.description}</p>
+                        <p>{this.props.data.description}</p> 
+                        <Jumbotron />
                     </Card.Body>
                 </Card>
             </div>
