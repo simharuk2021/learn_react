@@ -26,7 +26,7 @@ class Product extends Component {
                             numOfReviews={this.props.data.numOfReviews}
                         />
                         <p>{this.props.data.description}</p> 
-                        <Jumbotron />
+                        {/* <Jumbotron /> */}
                     </Card.Body>
                 </Card>
             </div>
