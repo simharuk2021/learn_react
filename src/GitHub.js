@@ -53,12 +53,13 @@ class Github extends Component {
                 <Card.Body>
                     <h5>Login: {user.login}</h5>
                     <p>Id: {user.id}</p>
+                    <h4>url:{user.url}</h4>
                 </Card.Body>
 
             </Card>);
         return (
             <div>
-                <Form inline onSubmit={this.handleSubmit}>
+                <Form class = "jumbotron" inline onSubmit={this.handleSubmit}>
                     <Form.Group controlID="formInlineName">
                         <Form.Control
                             type="text"
