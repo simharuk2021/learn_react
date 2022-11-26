@@ -4,6 +4,7 @@ import Products from './Products';
 import UserForm from './UserForm';
 // import Jumbotron from './Jumbotron';
 import Github from './GitHub';
+import  {Nav, Navbar} from 'react-bootstrap';
 
 class App extends Component {
     render() {
@@ -21,6 +22,16 @@ class Header extends Component {
     return (
       <BrowserRouter>
       <div>
+        <Navbar bg="light" expands="lg">
+          <Navbar.Brand href ="#home">React Bootstrap</Navbar.Brand>
+          <Navbar.Toggle aria-controls='basic-navbar-nav'/>
+          <Navbar.Collapse id ="basic-navbar-nav">
+            <Nav className ="mr-auto">
+              <Nav.Link href ="/">Home</Nav.Link>
+              <Nav.Link href ="/github">Github</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
         <Routes>
         {/* <UserForm /> */}
         {/* <Products />    */}
