@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Products from './Products';
-import UserForm from './UserForm';
+// import Products from './Products';
+// import UserForm from './UserForm';
 // import Jumbotron from './Jumbotron';
-import Github from './GitHub';
+import GitHub from './GitHub';
+import GitHubUser from './GitHubUser';
 import  {Nav, Navbar} from 'react-bootstrap';
 
 class App extends Component {
@@ -35,7 +36,8 @@ class Header extends Component {
         <Routes>
         {/* <UserForm /> */}
         {/* <Products />    */}
-        <Route path ="/github" element = {<Github/>}/>
+        <Route path ="/github/user/:login/:id" element = {<GitHubUser/>}/>
+        <Route path ="/github" element = {<GitHub/>}/>
         <Route exact path ="/" element = {<Home/>} />
         <Route path ="/*" element = {<NotFound/>} />
         </Routes>

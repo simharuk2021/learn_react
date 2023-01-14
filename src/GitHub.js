@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 import { Button, Card, Form } from "react-bootstrap";
+import  {Nav} from 'react-bootstrap';
 
 class Github extends Component {
     constructor() {
@@ -23,7 +24,7 @@ class Github extends Component {
         this.getGitHubData(this.state.searchTerm);
     }
     handleChange(e) {
-        this.setState({ searchTerm: e.target.value});
+        this.setState({ searchTerm: e.target.value });
     }
     componentDidMount() {
         // this.getGitHubData('greg');
@@ -41,35 +42,37 @@ class Github extends Component {
     render() {
         const listUsers = this.state.data.map((user) =>
             <Card key={user.id}>
-                <a href={user.html_url}>
-                    <img
-                        width={64}
-                        height={64}
-                        className="mr-3"
-                        src={user.avatar_url}
-                        alt="Generic placeholder"
-                    />
-                </a>
+                <Nav.Link href={`/github/user/${user.login}/${user.id}`}>
+                    <a href={user.html_url}>
+                        <img
+                            width={64}
+                            height={64}
+                            className="mr-3"
+                            src={user.avatar_url}
+                            alt="Generic placeholder"
+                        />
+                    </a>
+                </Nav.Link>
                 <Card.Body>
                     <h5>Login: {user.login}</h5>
                     <p>Id: {user.id}</p>
-                    <h4>url:{user.url}</h4>
+                    {/* <h4>url:{user.url}</h4> */}
                 </Card.Body>
 
             </Card>);
         return (
             <div>
-                <Form class = "jumbotron" inline onSubmit={this.handleSubmit}>
+                <Form class="jumbotron" inline onSubmit={this.handleSubmit}>
                     <Form.Group controlID="formInlineName">
                         <Form.Control
                             type="text"
                             value={this.state.searchTerm}
                             placeholder="Enter Search Term"
                             onChange={this.handleChange}
-                            />
+                        />
                     </Form.Group>
                     {' '}
-                    <Button type = 'submit'>Search</Button>
+                    <Button type='submit'>Search</Button>
                 </Form>
                 <h3>Github Users Results</h3>
                 {this.state.isLoading &&
